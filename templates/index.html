@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{% static 'index.css' %}" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ATM System</title>
+  </head>
+
+  <body>
+    <div class="page">
+      <header>
+        <h2 class="wel">Welcome to the ATM System</h2>
+        <p class="pls">please login to continue.</p>
+      </header>
+
+      <div class="container">
+        <form class="lg" method="post" action="{% url 'index' %}">
+          {% csrf_token %}
+          <input id="acc" type="text" name="account_number" placeholder="Enter your Account Number" autocomplete="off" required /> <br />
+          <div class="pin-container">
+            <input id="pin" type="password" name="password" placeholder="Enter your PIN" autocomplete="off" />
+            <button class="show-pin" type="button" onclick="showPin()">👁️</button>
+            {% if pin_error %}
+              <p class="pin-error">{{ pin_error }}</p>
+            {% endif %}
+          </div>
+
+          <button class="submit" type="submit" href="{% url 'login' %}">Login</button>
+        </form>
+        <p class="or">or</p>
+        <a class="reg" href="{% url 'create_account' %}">Register Your Account</a>
+      </div>
+
+      <footer>
+        <div class="footer-links">
+          <a class="about" href="{% url 'about' %}">About</a>
+          <a class="contact" href="{% url 'contact' %}">Contact</a>
+          <a class="privacy" href="{% url 'privacy' %}">Privacy Policy</a>
+        </div>
+        <p class="copyright">© 2026 My ATM System. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>

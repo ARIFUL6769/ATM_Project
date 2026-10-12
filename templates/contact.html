@@ -1,0 +1,39 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - ATM System</title>
+    <link rel="stylesheet" href="{% static 'contact.css' %}">
+</head>
+<body>
+
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+
+        <p>
+            Thank you for visiting my ATM System!
+        </p>
+
+        <p>
+            If you have any questions, feedback, or suggestions
+            about this project, please feel free to contact me.
+        </p>
+
+        <div class="project-info">
+            <p><strong>Project:</strong> ATM System</p>
+            <p><strong>Technologies Used:</strong></p>
+            <p>Python, Django, HTML, CSS, and SQLite</p>
+        </div>
+
+        <p>
+            Your feedback and suggestions are always welcome.
+        </p>
+
+        <a class="back" href="{% url 'index' %}">Back to Login</a>
+    </div>
+
+</body>
+</html>

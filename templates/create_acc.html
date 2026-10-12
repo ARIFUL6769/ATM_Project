@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Create Account - ATM System</title>
+
+    <link rel="stylesheet" href="{% static 'create_acc.css' %}" />
+  </head>
+  <body>
+    <div class="page">
+      <h1 class="create-title">Create Your Account</h1>
+      <p class="create-description">Please fill in the information below.</p>
+      <div class="form">
+        <form class="create-form" method="post" action="{% url 'create_account' %}">
+          <p class="name-instruction">Please enter your name in English letters only.</p>
+          {% csrf_token %}
+          <label for="name">Full Name:</label>
+          <input class="name" id="name" type="text" name="name" placeholder="Enter your Full Name" autocomplete="name" required /><br />
+
+          <p class="name-instruction">Please enter your Address in English letters only.</p>
+          <label for="address">Address:</label>
+          <input class="name" id="address" type="text" name="address" placeholder="Enter your Address" autocomplete="off" required /><br />
+          <label for="phone">Phone Number:</label>
+          <input class="name" id="phone" type="tel" name="phone" placeholder="Enter Your phone number" autocomplete="off" required /><br />
+          <label for="email">Email:</label>
+          <input class="name" id="email" type="email" name="email" placeholder="Enter your Email" autocomplete="off" required /><br />
+          <label for="account_number">Account Number:</label>
+          <input class="name" id="account_number" type="text" name="account_number" placeholder="Enter your preferred account number" autocomplete="off" required /><br />
+          <label for="pin">PIN:</label>
+          <input class="name" id="pin" type="password" name="pin" placeholder="Enter your PIN" maxlength="4" inputmode="numeric" autocomplete="off" required /><br />
+          <label for="confirm_pin">Confirm PIN:</label>
+          <input class="name" id="confirm_pin" type="password" name="confirm_pin" placeholder="Confirm your PIN" maxlength="4" inputmode="numeric" autocomplete="off" required /><br />
+          <button type="submit" class="create-btn">Create Account</button>
+        </form>
+      </div>
+      <p class="login-text">
+        Already have an account? <a class="login" href="{% url 'index' %}">Login</a>
+      </p>
+    </div>
+  </body>
+</html>

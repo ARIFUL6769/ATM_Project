@@ -1,0 +1,20 @@
+.success-message {
+    text-align: center;
+    background-color: #f0fdf4;
+    border: 1px solid #86efac;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 450px;
+    color: #166534;
+}
+
+.success-message h2 {
+    margin-bottom: 15px;
+    color: #15803d;
+}
+
+.success-message p {
+    margin: 10px 0;
+    font-size: 16px;
+}

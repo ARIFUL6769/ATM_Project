@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transfer History</title>
+</head>
+<body>
+
+    <h1>Transfer History</h1>
+
+    {% for item in history %}
+        <p>Date: {{ item.created_at }}</p>
+        <p>From: {{ item.sender.account_number }}</p>
+        <p>To: {{ item.recipient.account_number }}</p>
+        <p>Amount: ¥{{ item.amount }}</p>
+        <hr>
+    {% empty %}
+        <p>No transfer history found.</p>
+    {% endfor %}
+
+    <a href="{% url 'login' %}">Back to Home</a>
+
+</body>
+</html>

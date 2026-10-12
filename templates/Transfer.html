@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Transfer</title>
+  </head>
+  <body>
+    <h1>Transfer Money</h1>
+
+    <form method="POST" action="{% url 'transfer' %}">
+      {% csrf_token %}
+
+      <label>Receiver Account Number:</label>
+      <input type="text" name="recipient_number" required />
+
+      <br /><br />
+
+      <label>Enter Amount:</label>
+      <input type="number" name="amount" min="1" step="0.01" required />
+
+      <br /><br />
+
+      <button type="submit">Transfer</button>
+    </form>
+
+
+    {% if error %}
+      <p>{{ error }}</p>
+    {% endif %}
+
+    {% if message %}
+      <p>{{ message }}</p>
+    {% endif %}
+
+    <a href="{% url 'login' %}">Back to Home</a>
+  </body>
+</html>

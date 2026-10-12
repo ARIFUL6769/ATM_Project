@@ -1,0 +1,70 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - ATM System</title>
+    <link rel="stylesheet" href="{% static 'privacy_policy.css' %}">
+</head>
+<body>
+
+    <div class="privacy-container">
+
+        <h1>Privacy Policy</h1>
+
+        <p>
+            Welcome to the ATM System. This Privacy Policy
+            explains how information is handled when you use
+            this web application.
+        </p>
+
+        <h2>1. Information Collection</h2>
+        <p>
+            This application may store account information,
+            such as name, email address, account number, and PIN,
+            to demonstrate basic ATM operations.
+        </p>
+
+        <h2>2. Use of Information</h2>
+        <p>
+            The information is used to support account login,
+            balance checking, deposits, withdrawals, and
+            money transfers within this application.
+        </p>
+
+        <h2>3. Data Security</h2>
+        <p>
+            Reasonable care should be taken to protect account
+            information. This project is intended for learning
+            purposes and is not a real banking service.
+        </p>
+
+        <h2>4. Information Sharing</h2>
+        <p>
+            Do not enter real banking details or sensitive
+            personal information into this demonstration
+            application.
+        </p>
+
+        <h2>5. Changes to This Policy</h2>
+        <p>
+            This Privacy Policy may be updated as the project
+            develops.
+        </p>
+
+        <h2>6. Contact</h2>
+        <p>
+            If you have questions about this project, please
+            visit our Contact page.
+        </p>
+
+        <a href="{% url 'index' %}" class="back">
+            Back to Login
+        </a>
+
+    </div>
+
+</body>
+</html>

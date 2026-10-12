@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Withdraw</title>
+  </head>
+  <body>
+    <h1>Withdraw Money</h1>
+
+    <form method="POST" action="{% url 'withdraw' %}">
+      {% csrf_token %}
+
+      <label>Enter Amount:</label>
+      <input type="number" name="amount" min="1" required />
+
+      <button type="submit">Withdraw</button>
+    </form>
+
+    {% if error %}
+      <p>{{ error }}</p>
+    {% endif %}
+
+    {% if message %}
+      <p>{{ message }}</p>
+    {% endif %}
+   
+  
+
+    <a href="{% url 'login' %}">Back to Home</a>
+  </body>
+</html>

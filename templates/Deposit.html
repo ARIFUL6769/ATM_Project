@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Deposit</title>
+  </head>
+  <body>
+    <h1>Deposit Money</h1>
+
+    <form method="POST" action="{% url 'deposit' %}">
+      {% csrf_token %}
+
+      <label>Enter Amount:</label>
+      <input type="number" name="amount" min="1" required />
+
+      <button type="submit">Deposit</button>
+    </form>
+
+    <a href="{% url 'login' %}">Back to Home</a>
+    {% if message %}
+      <div class="success-message">
+        <h2>✓ {{ message }}</h2>
+    
+      </div>
+    {% endif %}
+
+    {% if error %}
+      <p>{{ error }}</p>
+    {% endif %}
+
+
+  </body>
+</html>
