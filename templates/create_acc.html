@@ -17,6 +17,7 @@
         <form class="create-form" method="post" action="{% url 'create_account' %}">
           <p class="name-instruction">Please enter your name in English letters only.</p>
           {% csrf_token %}
+          
           <label for="name">Full Name:</label>
           <input class="name" id="name" type="text" name="name" placeholder="Enter your Full Name" autocomplete="name" required /><br />
 
@@ -27,6 +28,9 @@
           <input class="name" id="phone" type="tel" name="phone" placeholder="Enter Your phone number" autocomplete="off" required /><br />
           <label for="email">Email:</label>
           <input class="name" id="email" type="email" name="email" placeholder="Enter your Email" autocomplete="off" required /><br />
+          {% if error %}
+            <p style="color: red;">{{ error }}</p>
+          {% endif %}
           <label for="account_number">Account Number:</label>
           <input class="name" id="account_number" type="text" name="account_number" placeholder="Enter your preferred account number" autocomplete="off" required /><br />
           <label for="pin">PIN:</label>
@@ -40,12 +44,5 @@
         Already have an account? <a class="login" href="{% url 'index' %}">Login</a>
       </p>
     </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b757b3 (Handle duplicate email)
-    {% if error %}
-      <p style="color: red;">{{ error }}</p>
-    {% endif %}
   </body>
 </html>

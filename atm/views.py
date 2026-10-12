@@ -68,12 +68,9 @@ def create_account(request):
         account_number = request.POST.get("account_number")
         pin = request.POST.get("pin")
         confirm_pin = request.POST.get("confirm_pin")
-        if Account.objects.filter(email=email).exists():
-            return render(
-                request,
-                "create_acc.html",
-                {"error": "This email is already registered."},
-            )
+        
+        
+      
 
         if Account.objects.filter(email=email).exists():
             return render(
