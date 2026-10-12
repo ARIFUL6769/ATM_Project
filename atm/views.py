@@ -6,7 +6,8 @@ from .models import Account, TransferTransaction
 from django.db import models
 from django.contrib import messages
 
-#login page
+
+# login page
 def index(request):
 
     if request.method == "POST":
@@ -32,25 +33,32 @@ def index(request):
             )
     return render(request, "index.html")
 
-#about page
+
+# about page
 def about(request):
     return render(request, "about.html")
 
-#account information page
+
+# account information page
 def Account_Information(request):
     return render(request, "Account_information.html")
+
+
 def contact(request):
     return render(request, "contact.html")
+
+
 def privacy(request):
     return render(request, "privacy.html")
 
-#Change PIN
+
+# Change PIN
 def change_pin(request):
 
-    return render(request, 'change_pin.html')
-    
+    return render(request, "change_pin.html")
 
-#create account page
+
+# create account page
 def create_account(request):
     if request.method == "POST":
         full_name = request.POST.get("name")
@@ -60,6 +68,13 @@ def create_account(request):
         account_number = request.POST.get("account_number")
         pin = request.POST.get("pin")
         confirm_pin = request.POST.get("confirm_pin")
+
+        if Account.objects.filter(email=email).exists():
+            return render(
+                request,
+                "create_acc.html",
+                {"error": "This email address is already registered."},
+            )
 
         # Check PIN
         if pin != confirm_pin:
@@ -117,7 +132,7 @@ def deposit(request):
                 },
             )
 
-    return render(request, "deposit.html", { "balance": account.balance})
+    return render(request, "deposit.html", {"balance": account.balance})
 
 
 def withdraw(request):
@@ -161,7 +176,7 @@ def withdraw(request):
                 },
             )
 
-    return render(request, "withdraw.html",{ "balance": account.balance})
+    return render(request, "withdraw.html", {"balance": account.balance})
 
 
 def transfer(request):
@@ -223,9 +238,7 @@ def transfer(request):
                 sender.save()
                 recipient.save()
                 TransferTransaction.objects.create(
-                    sender=sender,
-                    recipient=recipient,
-                    amount=amount
+                    sender=sender, recipient=recipient, amount=amount
                 )
 
             return render(
@@ -245,11 +258,6 @@ def transfer(request):
     account = Account.objects.get(account_number=account_number)
 
     return render(request, "Transfer.html", {"balance": account.balance})
-
-
-
-
-
 
 
 def transfer_history(request):

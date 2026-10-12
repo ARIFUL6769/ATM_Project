@@ -40,5 +40,8 @@
         Already have an account? <a class="login" href="{% url 'index' %}">Login</a>
       </p>
     </div>
+    {% if error %}
+      <p style="color: red;">{{ error }}</p>
+    {% endif %}
   </body>
 </html>
