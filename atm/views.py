@@ -201,7 +201,7 @@ def transfer(request):
             account = Account.objects.get(account_number=account_number)
             return render(
                 request,
-                "Transfer.html",
+                "transfer.html",
                 {
                     "balance": account.balance,
                     "error": "Please enter a valid positive amount.",
@@ -212,7 +212,7 @@ def transfer(request):
             account = Account.objects.get(account_number=account_number)
             return render(
                 request,
-                "Transfer.html",
+                "transfer.html",
                 {
                     "balance": account.balance,
                     "error": "You cannot transfer money to your own account.",
@@ -231,7 +231,7 @@ def transfer(request):
                 if amount > sender.balance:
                     return render(
                         request,
-                        "Transfer.html",
+                        "transfer.html",
                         {"balance": sender.balance, "error": "Insufficient balance!"},
                     )
 
@@ -246,7 +246,7 @@ def transfer(request):
 
             return render(
                 request,
-                "Transfer.html",
+                "transfer.html",
                 {"balance": sender.balance, "message": "Transfer successful!"},
             )
 
@@ -254,13 +254,13 @@ def transfer(request):
             account = Account.objects.get(account_number=account_number)
             return render(
                 request,
-                "Transfer.html",
+                "transfer.html",
                 {"balance": account.balance, "error": "Recipient account not found."},
             )
 
     account = Account.objects.get(account_number=account_number)
 
-    return render(request, "Transfer.html", {"balance": account.balance})
+    return render(request, "transfer.html", {"balance": account.balance})
 
 
 def transfer_history(request):
